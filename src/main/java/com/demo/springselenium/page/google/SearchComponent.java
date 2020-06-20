@@ -2,14 +2,16 @@ package com.demo.springselenium.page.google;
 
 import java.util.List;
 
+import com.demo.springselenium.annotations.LazyService;
 import com.demo.springselenium.page.Base;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 
-@Component
+@LazyService
+@Scope("prototype")
 public class SearchComponent extends Base {
 
     @FindBy(name = "q")

@@ -9,26 +9,25 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Profile;
 
-@Lazy
-@Configuration
+import com.demo.springselenium.annotations.LazyConfiguration;
+import com.demo.springselenium.annotations.ThreadScopeBean;
+
+@LazyConfiguration
 @Profile("remote")
 public class RemoteWebDriverConfig {
 
     @Value("${hubURL}")
     private String hubURL;
 
-    @Bean
+    @ThreadScopeBean
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver remoteFirefox() throws MalformedURLException {
         return new RemoteWebDriver(new URL(this.hubURL), DesiredCapabilities.firefox());
     }
 
-    @Bean
+    @ThreadScopeBean
     @ConditionalOnMissingBean
     public WebDriver remoteChrome() throws MalformedURLException {
         return new RemoteWebDriver(new URL(this.hubURL), DesiredCapabilities.chrome());

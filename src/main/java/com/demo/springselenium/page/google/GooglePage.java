@@ -1,12 +1,14 @@
 package com.demo.springselenium.page.google;
 
+import com.demo.springselenium.annotations.LazyService;
 import com.demo.springselenium.page.Base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 
-@Component
+@LazyService
+@Scope("prototype")
 public class GooglePage extends Base {
 
     @Autowired

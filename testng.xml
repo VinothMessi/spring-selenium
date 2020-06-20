@@ -22,5 +22,25 @@
 		</classes>
 
 	</test>
+	
+	<test name="Test-3">
+
+		<classes>
+
+			<class name="com.demo.springselenium.googleTests.GoogleTest1" />
+
+		</classes>
+
+	</test>
+
+	<test name="Test-4">
+
+		<classes>
+
+			<class name="com.demo.springselenium.googleTests.GoogleTest2" />
+
+		</classes>
+
+	</test>
 
 </suite>
